@@ -28,9 +28,9 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console()
 .WriteTo.File(
-        $@"{appSettings.LogFilePath}{appSettings.LogFileName}.txt",
+        $@"{appSettings?.LogFilePath}{appSettings?.LogFileName}.txt",
         rollingInterval: (RollingInterval.Day),
-        fileSizeLimitBytes: (appSettings.LogFileSizeMB * 1000000),
+        fileSizeLimitBytes: (appSettings?.LogFileSizeMB * 1000000),
         rollOnFileSizeLimit: true,
         retainedFileCountLimit: null)
     .CreateLogger();
